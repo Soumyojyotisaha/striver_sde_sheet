@@ -1,8 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-class Solution {
-public:
     int getAns(vector<int>& nums, int n, int ind, int prev_ind, vector<vector<int>>& dp) {
         if (ind == n)
             return 0;
@@ -26,12 +23,10 @@ public:
         vector<vector<int>> dp(n, vector<int>(n + 1, -1));
         return getAns(nums, n, 0, -1, dp);
     }
-};
 
 // Example usage
 int main() {
-    Solution sol;
     vector<int> nums = {10, 9, 2, 5, 3, 7, 101, 18};
-    cout << "The length of the longest increasing subsequence is " << sol.lengthOfLIS(nums) << endl;
+    cout << "The length of the longest increasing subsequence is " << lengthOfLIS(nums) << endl;
     return 0;
 }

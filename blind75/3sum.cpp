@@ -51,7 +51,7 @@ int main() {
     cout << "Unique triplets that sum to zero are:" << endl;
     for (const auto& triplet : result) {
         cout << "[";
-        for (size_t i = 0; i < triplet.size(); ++i) {
+        for (int i = 0; i < triplet.size(); ++i) {
             cout << triplet[i];
             if (i < triplet.size() - 1) cout << ", ";
         }

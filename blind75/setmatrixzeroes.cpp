@@ -1,5 +1,5 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
+using namespace std;
 
 class Solution {
 public:
@@ -51,32 +51,34 @@ public:
 };
 
 // Helper function to print the matrix
-void printMatrix(const std::vector<std::vector<int>>& matrix) {
-    for (const auto& row : matrix) {
-        for (int num : row) {
-            std::cout << num << ' ';
-        }
-        std::cout << '\n';
-    }
+void printMatrix(const vector<vector<int>>& matrix) {
+for(const auto var:matrix)
+{
+ for(const auto &num:var)
+ {
+    cout<<num<<" ";
+ }
+ cout<<endl;
+}
 }
 
 int main() {
     Solution solution;
     
     // Initialize the matrix
-    std::vector<std::vector<int>> matrix = {
+    vector<vector<int>> matrix = {
         {1, 2, 3, 4},
         {5, 0, 7, 8},
         {9, 10, 11, 12}
     };
     
-    std::cout << "Original matrix:\n";
+    cout << "Original matrix:\n";
     printMatrix(matrix);
     
     // Apply the setZeroes function
     solution.setZeroes(matrix);
     
-    std::cout << "\nMatrix after setZeroes:\n";
+    cout << "\nMatrix after setZeroes:\n";
     printMatrix(matrix);
     
     return 0;

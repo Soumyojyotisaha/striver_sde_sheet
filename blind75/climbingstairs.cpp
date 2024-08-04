@@ -11,10 +11,13 @@ public:
         int f = 1; // Number of ways to climb to the previous step
         int s = 1; // Number of ways to climb to the step before the previous one
         
-        for (int i = 1; i < n; ++i) {
-            int t = f; // Temporary store of previous step's number of ways
-            f = f + s; // Number of ways to climb to the current step
-            s = t; // Update previous step's number of ways
+        for (int i = n-2; i > 0; --i) 
+        {
+            int t = f+s; 
+            s=f;
+            f--;
+            s--;
+            f=t;
         }
         
         return f;

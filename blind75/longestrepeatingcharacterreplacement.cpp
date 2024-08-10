@@ -1,49 +1,40 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-class Solution
-{
-    public:
-    int charreplace(string s,int k)
-    {
-        unordered_map<char,int>hm;
-        int ans=0;
-        int l=0;
-        for(int r=0;r<s.length();++r)
-        {
-            hm[s[r]]++;
-        int maxfreq=0;
-        for(const auto&pair:hm)
-        {
-            if(pair.second>maxfreq)
-            {
-                maxfreq=pair.second;
-            }
-        }
-        while((r-l+1)-maxfreq>k)
-        {
-          hm[s[l]]--;
-          l++;
-          maxfreq=0;
 
-          for(const auto&pair:hm)
-          {
-            if(pair.second>maxfreq)
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        unordered_map<char, int> hm; // To count frequencies of characters
+        int ans = 0;
+        int l = 0;
+        
+        for (int r = 0; r < s.length(); ++r) {
+            hm[s[r]]++;
+            
+            // Check if the current window size minus the count of the most frequent character
+            // is greater than k
+            while ((r - l + 1) - max_element(hm.begin(), hm.end(), [](const pair<char, int>& a, const pair<char, int>& b) 
             {
-               maxfreq=pair.second;
+            return a.second < b.second;
+            })->second > k) 
+            {
+                hm[s[l]]--;
+                l++;
             }
-          }
+            
+            ans = max(ans, r - l + 1);
         }
-        ans=max(ans,r-l+1);
-        }
+        
         return ans;
     }
 };
-int main()
-{
+
+// Example usage
+int main() {
     Solution sol;
-    string s="ABABBA";
-    int k=2;
-    int result=sol.charreplace(s,k);
-    cout<<result<<endl;
+    string s = "AABABBA";
+    int k = 1;
+    int result = sol.characterReplacement(s, k);
+    cout << result << endl; // Output should be 4
     return 0;
 }

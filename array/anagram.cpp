@@ -8,7 +8,6 @@ bool anagram(string s1, string s2) {
     }
 
     int count[256] = {0}; // Assuming ASCII character set
-
     for (int i = 0; i < s1.length(); i++) {
         count[s1[i]]++;
         count[s2[i]]--;

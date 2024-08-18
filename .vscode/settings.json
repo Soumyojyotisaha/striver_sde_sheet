@@ -5,7 +5,8 @@
     "iostream": "cpp",
     "iosfwd": "cpp",
     "*.tcc": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "string": "cpp"
   },
   "C_Cpp.errorSquiggles": "enabled",
   "C_Cpp_Runner.cCompilerPath": "gcc",

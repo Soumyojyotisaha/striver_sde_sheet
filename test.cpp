@@ -1,30 +1,22 @@
 #include <iostream>
-#include <set>
+using namespace std;
 
-void explainMultiset() // sorted but not unique
-{
-    std::multiset<int> ms; // Create a multiset of integers
-    ms.insert(1); // Insert the element 1; multiset now contains {1}
-    ms.insert(1); // Insert another 1; multiset now contains {1, 1}
-    ms.insert(1); // Insert another 1; multiset now contains {1, 1, 1}
-    int cnt = ms.count(1); // Count the number of elements equal to 1 in the multiset; cnt = 3
-    std::cout << "Count of 1: " << cnt << std::endl;
+// Abstract class with a pure virtual function
+class Shape {
+public:
+    virtual void draw() = 0; // Pure virtual function
+};
 
-    // Erase elements
-    auto it = ms.find(1); // Iterator to the first occurrence of 1
-    // Erase the first 2 occurrences of 1
-    ms.erase(it, std::next(it, 2)); // Remove elements in the range [it, it + 2)
-    
-    // Print remaining elements
-    std::cout << "Elements after erase: ";
-    for (const int& value : ms) {
-        std::cout << value << " ";
+// Derived class implementing the pure virtual function
+class Circle : public Shape {
+public:
+    void draw() override { // Override pure virtual function
+        cout << "Circle" << endl;
     }
-    std::cout << std::endl;
-}
+};
 
-int main()
-{
-    explainMultiset(); // Call the function to demonstrate multiset operations
-    return 0; // Indicate that the program ended successfully
+int main() {
+    Circle c1;
+    c1.draw(); // Output: Circle
+    return 0;
 }
